@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>eToro · Copy the Crypto Pros</title>
+<meta name="description" content="Copy top crypto investors, trade 150+ coins, stake with no lockup, and store everything free. One app. Built by the crowd. Powered by eToro." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ==========================================================
+     eToro Brand-inspired landing page
+     Primary: Navy #040327 · Green #13C636 · White
+     Secondary: Light Blue #AEE2FF · Pink #FF4FC1 · Orange #E8631B
+                Gold #F5A524 · Mint #6EE8B8
+     Type: Oswald (display substitute for Tusker Grotesk),
+           Inter (body substitute for Madera)
+     ========================================================== */
+
+  :root{
+    --navy:#040327;
+    --navy-2:#0A0937;
+    --navy-3:#15124A;
+    --green:#13C636;
+    --green-hi:#21E14A;
+    --green-lo:#0BA52B;
+    --white:#ffffff;
+    --lightblue:#AEE2FF;
+    --pink:#FF4FC1;
+    --orange:#E8631B;
+    --gold:#F5A524;
+    --mint:#6EE8B8;
+    --ink:#0B0B24;
+    --muted:rgba(255,255,255,0.66);
+    --line:rgba(255,255,255,0.12);
+    --radius:18px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background:var(--navy);
+    color:var(--white);
+    line-height:1.55;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  .wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+  .display{font-family:'Oswald', Impact, sans-serif;font-weight:700;line-height:.92;letter-spacing:-.01em;text-transform:uppercase}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(18px);
+    background:rgba(4,3,39,0.72);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1280px;margin:0 auto}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--green)}
+  .logo svg{height:26px;width:auto}
+  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--muted)}
+  .nav-links a{transition:color .2s}
+  .nav-links a:hover{color:var(--white)}
+  .nav-cta{display:flex;gap:12px;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:999px;font-weight:600;font-size:14px;
+    transition:transform .2s, background .2s, box-shadow .2s;
+    border:none;cursor:pointer;font-family:inherit;
+  }
+  .btn-ghost{background:transparent;color:var(--white);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--green);color:var(--green)}
+  .btn-primary{
+    background:var(--green);color:var(--navy);
+    box-shadow:0 8px 28px rgba(19,198,54,.35);
+  }
+  .btn-primary:hover{background:var(--green-hi);transform:translateY(-1px)}
+  .btn-lg{padding:16px 28px;font-size:16px}
+
+  @media(max-width:880px){.nav-links{display:none}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:80px 0 40px;
+    overflow:hidden;
+    isolation:isolate;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:-2;
+    background:
+      radial-gradient(900px 500px at 85% -10%, rgba(19,198,54,.25), transparent 60%),
+      radial-gradient(700px 500px at 10% 20%, rgba(255,79,193,.12), transparent 65%),
+      radial-gradient(500px 400px at 50% 110%, rgba(174,226,255,.10), transparent 65%);
+  }
+  /* subtle grid */
+  .hero::after{
+    content:"";position:absolute;inset:0;z-index:-1;opacity:.35;
+    background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse at center, black 40%, transparent 80%);
+  }
+
+  .hero-grid{
+    display:grid;grid-template-columns: 1.05fr .95fr; gap:48px; align-items:center;
+  }
+  @media(max-width:1024px){.hero-grid{grid-template-columns:1fr;gap:24px}}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 14px;border-radius:999px;
+    background:rgba(19,198,54,.12);
+    color:var(--green);
+    font-size:13px;font-weight:600;letter-spacing:.02em;
+    border:1px solid rgba(19,198,54,.32);
+  }
+  .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);animation:pulse 1.6s infinite}
+  @keyframes pulse{
+    0%,100%{transform:scale(1);opacity:1}
+    50%{transform:scale(1.4);opacity:.7}
+  }
+
+  h1.hero-title{
+    font-size:clamp(52px, 7.5vw, 128px);
+    margin:22px 0 18px;
+  }
+  h1.hero-title .line{display:block}
+  h1.hero-title .accent{color:var(--green)}
+  h1.hero-title .rainbow{
+    background: linear-gradient(90deg,#FF4FC1 0%, #E8631B 30%, #F5A524 55%, #13C636 85%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{
+    font-size:clamp(16px,1.25vw,19px);max-width:560px;color:var(--muted);
+    margin-bottom:32px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+  .hero-mini{
+    display:flex;gap:22px;flex-wrap:wrap;align-items:center;
+    font-size:13px;color:var(--muted);
+  }
+  .hero-mini .chip{display:flex;align-items:center;gap:8px}
+  .hero-mini .chip svg{color:var(--green)}
+
+  /* phone mockup */
+  .phone-stage{
+    position:relative;
+    min-height:620px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .blob{
+    position:absolute;border-radius:50%;filter:blur(40px);opacity:.55;z-index:0;
+  }
+  .blob.b1{width:380px;height:380px;background:var(--green);top:-30px;right:30px;opacity:.35}
+  .blob.b2{width:300px;height:300px;background:var(--pink);bottom:20px;left:10px;opacity:.35}
+  .blob.b3{width:260px;height:260px;background:var(--lightblue);top:40%;left:50%;transform:translate(-50%,-50%);opacity:.2}
+
+  .phone{
+    position:relative;z-index:2;
+    width:320px;height:640px;border-radius:46px;
+    background:linear-gradient(180deg,#171533 0%, #0A0820 100%);
+    border:2px solid rgba(255,255,255,.08);
+    box-shadow:
+      0 40px 80px rgba(0,0,0,.55),
+      inset 0 0 0 8px #050414;
+    padding:14px;
+    overflow:hidden;
+    animation:floaty 7s ease-in-out infinite;
+  }
+  @keyframes floaty{
+    0%,100%{transform:translateY(0) rotate(-1.5deg)}
+    50%{transform:translateY(-14px) rotate(-1deg)}
+  }
+  .phone .notch{
+    position:absolute;top:14px;left:50%;transform:translateX(-50%);
+    width:130px;height:28px;background:#050414;border-radius:999px;z-index:3;
+  }
+  .screen{
+    width:100%;height:100%;border-radius:34px;overflow:hidden;
+    background:#0D0B2E;position:relative;padding:40px 16px 16px;
+  }
+  .statusbar{display:flex;justify-content:space-between;align-items:center;color:rgba(255,255,255,.7);font-size:11px;padding:0 4px 10px}
+  .screen h3{font-size:18px;font-weight:700;margin-bottom:4px}
+  .screen .sub{font-size:12px;color:var(--muted);margin-bottom:14px}
+  .tabs{display:flex;gap:6px;margin-bottom:14px}
+  .tab{
+    flex:1;text-align:center;padding:8px 4px;border-radius:10px;font-size:11px;font-weight:600;
+    background:rgba(255,255,255,.05);color:var(--muted);
+  }
+  .tab.active{background:var(--green);color:var(--navy)}
+  .copier{
+    display:flex;align-items:center;gap:10px;padding:10px;
+    background:rgba(255,255,255,.05);border-radius:14px;margin-bottom:10px;
+    border:1px solid rgba(255,255,255,.06);
+    transition:transform .4s;
+  }
+  .copier:hover{transform:translateX(2px)}
+  .avatar{
+    width:36px;height:36px;border-radius:50%;flex:0 0 36px;
+    display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:12px;
+  }
+  .a1{background:linear-gradient(135deg,#FF4FC1,#8E2DFF)}
+  .a2{background:linear-gradient(135deg,#13C636,#0BA52B)}
+  .a3{background:linear-gradient(135deg,#AEE2FF,#4C8CFF);color:#040327}
+  .a4{background:linear-gradient(135deg,#F5A524,#E8631B)}
+  .copier-info{flex:1;min-width:0}
+  .copier-name{font-size:12px;font-weight:600}
+  .copier-tag{font-size:10px;color:var(--muted)}
+  .copier-stat{text-align:right}
+  .copier-pct{font-size:13px;font-weight:700;color:var(--green)}
+  .copier-sub{font-size:10px;color:var(--muted)}
+  .copier-pct.red{color:#FF6470}
+
+  /* floating badges */
+  .badge{
+    position:absolute;z-index:3;
+    display:flex;align-items:center;gap:10px;
+    background:rgba(4,3,39,.88);
+    border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(14px);
+    padding:12px 14px;border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+  .badge .ico{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy)}
+  .badge .lbl{font-size:11px;color:var(--muted);line-height:1}
+  .badge .val{font-size:14px;font-weight:700;line-height:1.2}
+  .badge.b-top{top:28px;left:-20px;animation:floaty 6s ease-in-out infinite .5s}
+  .badge.b-top .ico{background:#F5A524}
+  .badge.b-mid{top:44%;right:-30px;animation:floaty 5s ease-in-out infinite 1s}
+  .badge.b-mid .ico{background:#13C636}
+  .badge.b-bot{bottom:40px;left:-30px;animation:floaty 7s ease-in-out infinite 1.5s}
+  .badge.b-bot .ico{background:#AEE2FF}
+
+  /* ---------- TICKER ---------- */
+  .ticker{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:rgba(255,255,255,.02);
+    overflow:hidden;
+    position:relative;
+  }
+  .ticker::before,.ticker::after{
+    content:"";position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;
+  }
+  .ticker::before{left:0;background:linear-gradient(90deg, var(--navy), transparent)}
+  .ticker::after{right:0;background:linear-gradient(-90deg, var(--navy), transparent)}
+  .ticker-track{
+    display:flex;gap:40px;padding:18px 0;
+    white-space:nowrap;
+    animation:scroll 35s linear infinite;
+    width:max-content;
+  }
+  @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .tick{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+  .tick .sym{font-weight:700;color:var(--white)}
+  .tick .price{font-weight:600;color:var(--white)}
+  .tick .up{color:var(--green)}
+  .tick .down{color:#FF6470}
+
+  /* ---------- SECTION BASE ---------- */
+  section{padding:100px 0;position:relative}
+  .section-head{max-width:720px;margin-bottom:48px}
+  .section-eyebrow{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:14px;display:block}
+  h2.section-title{font-size:clamp(40px,5vw,80px);line-height:.95;margin-bottom:18px}
+  .section-lead{color:var(--muted);font-size:17px;max-width:640px}
+
+  /* ---------- STATS ---------- */
+  .stats{padding:80px 0;background:linear-gradient(180deg, transparent, rgba(19,198,54,.04))}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  @media(max-width:800px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
+  .stat{text-align:center;padding:20px}
+  .stat-num{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(44px,5vw,72px);line-height:1;color:var(--green)}
+  .stat-lbl{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-top:10px}
+
+  /* ---------- HOW IT WORKS ---------- */
+  .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:900px){.how-grid{grid-template-columns:1fr}}
+  .step{
+    position:relative;
+    padding:40px 28px 32px;
+    border-radius:var(--radius);
+    background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    border:1px solid var(--line);
+    overflow:hidden;
+    transition:transform .3s, border-color .3s;
+  }
+  .step:hover{transform:translateY(-4px);border-color:rgba(19,198,54,.4)}
+  .step-num{
+    position:absolute;top:-10px;right:20px;
+    font-family:'Oswald',sans-serif;font-weight:700;font-size:130px;line-height:1;
+    color:rgba(255,255,255,.04);
+  }
+  .step-icon{
+    width:56px;height:56px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:22px;
+    background:var(--green);color:var(--navy);
+  }
+  .step:nth-child(2) .step-icon{background:var(--pink);color:#fff}
+  .step:nth-child(3) .step-icon{background:var(--gold);color:var(--navy)}
+  .step h3{font-size:24px;margin-bottom:10px}
+  .step p{color:var(--muted);font-size:15px}
+
+  /* ---------- POPULAR INVESTORS ---------- */
+  .pros{background:linear-gradient(180deg, transparent, rgba(255,79,193,.04) 50%, transparent)}
+  .pro-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  @media(max-width:1000px){.pro-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.pro-grid{grid-template-columns:1fr}}
+  .pro{
+    position:relative;
+    padding:24px;border-radius:var(--radius);
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--line);
+    transition:all .3s;
+  }
+  .pro:hover{transform:translateY(-6px);background:rgba(255,255,255,.07);border-color:rgba(19,198,54,.3)}
+  .pro-top{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+  .pro-avatar{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px}
+  .pro-name{font-weight:600;font-size:15px}
+  .pro-handle{font-size:12px;color:var(--muted)}
+  .pro-verified{
+    display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--green);
+    background:rgba(19,198,54,.1);padding:3px 8px;border-radius:999px;margin-top:4px;
+  }
+  .pro-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+  .tag{
+    font-size:10px;padding:4px 8px;border-radius:999px;
+    background:rgba(255,255,255,.06);color:var(--muted);font-weight:500;
+  }
+  .pro-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+  .metric-lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+  .metric-val{font-size:20px;font-weight:700;font-family:'Oswald',sans-serif}
+  .metric-val.green{color:var(--green)}
+  .spark{
+    height:36px;margin-bottom:16px;border-radius:8px;overflow:hidden;
+    background:rgba(19,198,54,.05);
+  }
+  .pro .btn{width:100%;justify-content:center}
+
+  /* ---------- FEATURES ---------- */
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:900px){.feat-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.feat-grid{grid-template-columns:1fr}}
+  .feat{
+    padding:28px;border-radius:var(--radius);
+    border:1px solid var(--line);
+    background:linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+    transition:all .3s;
+  }
+  .feat:hover{border-color:rgba(19,198,54,.4)}
+  .feat-ico{
+    width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+    background:rgba(19,198,54,.14);color:var(--green);
+  }
+  .feat:nth-child(2) .feat-ico{background:rgba(255,79,193,.14);color:var(--pink)}
+  .feat:nth-child(3) .feat-ico{background:rgba(245,165,36,.14);color:var(--gold)}
+  .feat:nth-child(4) .feat-ico{background:rgba(174,226,255,.14);color:var(--lightblue)}
+  .feat:nth-child(5) .feat-ico{background:rgba(110,232,184,.14);color:var(--mint)}
+  .feat:nth-child(6) .feat-ico{background:rgba(232,99,27,.14);color:var(--orange)}
+  .feat h3{font-size:20px;margin-bottom:8px}
+  .feat p{color:var(--muted);font-size:15px}
+
+  /* ---------- BIG STATEMENT ---------- */
+  .statement{
+    padding:140px 0;
+    background:var(--green);
+    color:var(--navy);
+    overflow:hidden;
+    position:relative;
+  }
+  .statement::before{
+    content:"COPY · CRYPTO · COPY · CRYPTO · COPY · CRYPTO · ";
+    position:absolute;top:10%;left:-5%;
+    font-family:'Oswald',sans-serif;font-weight:700;font-size:220px;
+    color:rgba(4,3,39,.06);white-space:nowrap;line-height:1;
+    transform:rotate(-4deg);pointer-events:none;
+  }
+  .statement .wrap{position:relative;z-index:2}
+  .statement h2{font-size:clamp(56px,8vw,140px);line-height:.9;text-transform:uppercase;font-family:'Oswald',sans-serif;font-weight:700}
+  .statement p{max-width:620px;margin-top:28px;font-size:19px;color:rgba(4,3,39,.75)}
+  .statement .btn-primary{background:var(--navy);color:var(--green);margin-top:36px}
+  .statement .btn-primary:hover{background:var(--navy-3)}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:900px){.testi-grid{grid-template-columns:1fr}}
+  .testi{
+    padding:28px;border-radius:var(--radius);
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--line);
+    position:relative;
+  }
+  .testi .stars{color:var(--gold);font-size:14px;margin-bottom:14px;letter-spacing:2px}
+  .testi blockquote{font-size:17px;line-height:1.5;margin-bottom:22px}
+  .testi-author{display:flex;align-items:center;gap:12px}
+  .testi-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff}
+  .testi-name{font-size:14px;font-weight:600}
+  .testi-role{font-size:12px;color:var(--muted)}
+
+  /* ---------- CTA FINAL ---------- */
+  .cta-final{
+    padding:120px 0;
+    text-align:center;
+    background:
+      radial-gradient(700px 400px at 50% 0%, rgba(19,198,54,.25), transparent 70%),
+      radial-gradient(500px 300px at 50% 100%, rgba(255,79,193,.12), transparent 70%);
+  }
+  .cta-final h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(48px,6vw,110px);line-height:.95;text-transform:uppercase;margin-bottom:22px}
+  .cta-final h2 .g{color:var(--green)}
+  .cta-final p{color:var(--muted);max-width:560px;margin:0 auto 34px;font-size:17px}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:60px 0 40px;border-top:1px solid var(--line);
+    background:rgba(0,0,0,.25);
+    font-size:13px;color:var(--muted);
+  }
+  .foot-top{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  @media(max-width:800px){.foot-top{grid-template-columns:1fr 1fr}}
+  .foot-col h4{font-size:13px;text-transform:uppercase;letter-spacing:.14em;color:var(--white);margin-bottom:16px;font-weight:700}
+  .foot-col a{display:block;padding:4px 0;color:var(--muted)}
+  .foot-col a:hover{color:var(--green)}
+  .foot-bot{padding-top:26px;border-top:1px solid var(--line);font-size:12px}
+  .disclaimer{background:rgba(255,255,255,.03);border-left:3px solid var(--orange);padding:18px 20px;border-radius:8px;margin-bottom:24px;font-size:12px;line-height:1.6;color:var(--muted)}
+  .disclaimer strong{color:var(--white)}
+
+  /* small helpers */
+  .sparkline path{fill:none;stroke:var(--green);stroke-width:2}
+  .sparkline.pink path{stroke:var(--pink)}
+  .sparkline.gold path{stroke:var(--gold)}
+  .sparkline.blue path{stroke:var(--lightblue)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo" aria-label="eToro">
+      <!-- eToro-style mark (original, not the actual logo) -->
+      <svg viewBox="0 0 120 34" fill="none" aria-hidden="true">
+        <path d="M14 9c-4 0-8 3-8 8s4 8 8 8 8-3 8-8c0-.7-.1-1.3-.2-2H12v4h5.3c-.6 1.3-2 2-3.3 2-2.2 0-4-1.8-4-4s1.8-4 4-4c1.2 0 2.2.5 3 1.3l2.7-2.7C18 9.9 16.2 9 14 9Z" fill="#13C636"/>
+        <path d="M8 5l2-3 2 3M20 5l2-3 2 3" stroke="#13C636" stroke-width="2" stroke-linecap="round"/>
+        <text x="30" y="23" font-family="Oswald, sans-serif" font-weight="700" font-size="20" fill="#13C636" letter-spacing="-.5">eToro</text>
+      </svg>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#crypto">Crypto</a>
+      <a href="#copy">CopyTrader</a>
+      <a href="#features">Features</a>
+      <a href="#pros">Popular Investors</a>
+      <a href="#">Academy</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="#" class="btn btn-ghost">Log in</a>
+      <a href="#cta" class="btn btn-primary">Join eToro</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy reveal">
+      <span class="eyebrow"><span class="dot"></span>Built for crypto copytraders · 40M+ investors</span>
+      <h1 class="hero-title display">
+        <span class="line">Copy the</span>
+        <span class="line rainbow">Crypto Pros.</span>
+        <span class="line">Own the <span class="accent">Upside.</span></span>
+      </h1>
+      <p class="hero-sub">
+        Trade 150+ coins, mirror the moves of top crypto investors, and stake with zero lockup — all in one app. Smarter than solo. Louder than silent money.
+      </p>
+      <div class="hero-actions">
+        <a href="#cta" class="btn btn-primary btn-lg">
+          Start copying — it's free
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#how" class="btn btn-ghost btn-lg">See how it works</a>
+      </div>
+      <div class="hero-mini">
+        <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>1% flat fee</span>
+        <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Free wallet</span>
+        <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>No lockup staking</span>
+        <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Regulated since 2007</span>
+      </div>
+    </div>
+
+    <!-- phone mockup -->
+    <div class="phone-stage reveal">
+      <span class="blob b1"></span>
+      <span class="blob b2"></span>
+      <span class="blob b3"></span>
+
+      <div class="badge b-top">
+        <div class="ico">BTC</div>
+        <div>
+          <div class="lbl">Your copy today</div>
+          <div class="val" style="color:var(--green)">+3.48%</div>
+        </div>
+      </div>
+      <div class="badge b-mid">
+        <div class="ico">✓</div>
+        <div>
+          <div class="lbl">Auto-rebalance</div>
+          <div class="val">Active</div>
+        </div>
+      </div>
+      <div class="badge b-bot">
+        <div class="ico" style="color:#040327">Ξ</div>
+        <div>
+          <div class="lbl">Staking APY</div>
+          <div class="val">up to 6.4%</div>
+        </div>
+      </div>
+
+      <div class="phone" aria-hidden="true">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="statusbar">
+            <span>9:41</span>
+            <span>● ● ● ◗</span>
+          </div>
+          <h3>CopyTrader · Crypto</h3>
+          <div class="sub">Mirror top crypto investors, live.</div>
+          <div class="tabs">
+            <div class="tab active">Crypto</div>
+            <div class="tab">Stocks</div>
+            <div class="tab">Smart</div>
+            <div class="tab">ETFs</div>
+          </div>
+
+          <div class="copier">
+            <div class="avatar a1">SC</div>
+            <div class="copier-info">
+              <div class="copier-name">satoshi_chic</div>
+              <div class="copier-tag">BTC · ETH · SOL · 18k copiers</div>
+            </div>
+            <div class="copier-stat">
+              <div class="copier-pct">+64.8%</div>
+              <div class="copier-sub">12M</div>
+            </div>
+          </div>
+
+          <div class="copier">
+            <div class="avatar a2">AK</div>
+            <div class="copier-info">
+              <div class="copier-name">altking</div>
+              <div class="copier-tag">L2s · Majors · 9.4k copiers</div>
+            </div>
+            <div class="copier-stat">
+              <div class="copier-pct">+42.1%</div>
+              <div class="copier-sub">12M</div>
+            </div>
+          </div>
+
+          <div class="copier">
+            <div class="avatar a3">MC</div>
+            <div class="copier-info">
+              <div class="copier-name">macro_crypto</div>
+              <div class="copier-tag">Staking · Blue chips · 6.1k</div>
+            </div>
+            <div class="copier-stat">
+              <div class="copier-pct">+28.7%</div>
+              <div class="copier-sub">12M</div>
+            </div>
+          </div>
+
+          <div class="copier">
+            <div class="avatar a4">DZ</div>
+            <div class="copier-info">
+              <div class="copier-name">defi_zen</div>
+              <div class="copier-tag">DeFi · Yield · 4.2k copiers</div>
+            </div>
+            <div class="copier-stat">
+              <div class="copier-pct">+19.3%</div>
+              <div class="copier-sub">12M</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="tick"><span class="sym">BTC</span> <span class="price">$92,410</span> <span class="up">▲ 2.14%</span></span>
+    <span class="tick"><span class="sym">ETH</span> <span class="price">$4,820</span> <span class="up">▲ 1.82%</span></span>
+    <span class="tick"><span class="sym">SOL</span> <span class="price">$212.40</span> <span class="up">▲ 4.71%</span></span>
+    <span class="tick"><span class="sym">XRP</span> <span class="price">$2.61</span> <span class="down">▼ 0.92%</span></span>
+    <span class="tick"><span class="sym">DOGE</span> <span class="price">$0.41</span> <span class="up">▲ 3.11%</span></span>
+    <span class="tick"><span class="sym">ADA</span> <span class="price">$1.12</span> <span class="up">▲ 0.47%</span></span>
+    <span class="tick"><span class="sym">AVAX</span> <span class="price">$48.22</span> <span class="up">▲ 6.18%</span></span>
+    <span class="tick"><span class="sym">LINK</span> <span class="price">$29.80</span> <span class="down">▼ 1.44%</span></span>
+    <span class="tick"><span class="sym">LTC</span> <span class="price">$138.05</span> <span class="up">▲ 0.88%</span></span>
+    <span class="tick"><span class="sym">DOT</span> <span class="price">$9.84</span> <span class="up">▲ 2.29%</span></span>
+    <!-- duplicate for seamless loop -->
+    <span class="tick"><span class="sym">BTC</span> <span class="price">$92,410</span> <span class="up">▲ 2.14%</span></span>
+    <span class="tick"><span class="sym">ETH</span> <span class="price">$4,820</span> <span class="up">▲ 1.82%</span></span>
+    <span class="tick"><span class="sym">SOL</span> <span class="price">$212.40</span> <span class="up">▲ 4.71%</span></span>
+    <span class="tick"><span class="sym">XRP</span> <span class="price">$2.61</span> <span class="down">▼ 0.92%</span></span>
+    <span class="tick"><span class="sym">DOGE</span> <span class="price">$0.41</span> <span class="up">▲ 3.11%</span></span>
+    <span class="tick"><span class="sym">ADA</span> <span class="price">$1.12</span> <span class="up">▲ 0.47%</span></span>
+    <span class="tick"><span class="sym">AVAX</span> <span class="price">$48.22</span> <span class="up">▲ 6.18%</span></span>
+    <span class="tick"><span class="sym">LINK</span> <span class="price">$29.80</span> <span class="down">▼ 1.44%</span></span>
+    <span class="tick"><span class="sym">LTC</span> <span class="price">$138.05</span> <span class="up">▲ 0.88%</span></span>
+    <span class="tick"><span class="sym">DOT</span> <span class="price">$9.84</span> <span class="up">▲ 2.29%</span></span>
+  </div>
+</div>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stat-grid">
+      <div class="stat reveal">
+        <div class="stat-num" data-target="40">0</div>
+        <div class="stat-lbl">Million+ investors</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num" data-target="150">0</div>
+        <div class="stat-lbl">Cryptoassets supported</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num" data-target="2007">0</div>
+        <div class="stat-lbl">Trusted since</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num" data-target="100">0</div>
+        <div class="stat-lbl">Countries · one app</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Copytraders × Crypto</span>
+      <h2 class="section-title display">How you turn <span style="color:var(--green)">the crowd</span> into your edge.</h2>
+      <p class="section-lead">Social trading was invented here. Now it's purpose-built for crypto — so you can follow what the smartest coins-first investors actually do with their money. Not their opinions.</p>
+    </div>
+
+    <div class="how-grid">
+      <div class="step reveal">
+        <span class="step-num">01</span>
+        <div class="step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </div>
+        <h3>Discover the right pros</h3>
+        <p>Filter by risk score, crypto mix, staking strategy and verified performance across market cycles. See real portfolios, not tweets.</p>
+      </div>
+      <div class="step reveal">
+        <span class="step-num">02</span>
+        <div class="step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg>
+        </div>
+        <h3>Copy in one tap</h3>
+        <p>Set your allocation and mirror every move — entries, exits, rebalances — automatically. Stop copy any time. Your funds, your rules.</p>
+      </div>
+      <div class="step reveal">
+        <span class="step-num">03</span>
+        <div class="step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+        </div>
+        <h3>Stack rewards, not stress</h3>
+        <p>Earn staking rewards with zero lockup, hold in a free wallet, or move on-chain when you want. Your crypto keeps working while you don't.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POPULAR INVESTORS ============ -->
+<section id="pros" class="pros">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Popular Investors</span>
+      <h2 class="section-title display">Meet the <span style="color:var(--pink)">coins-first</span> crowd you'll want to copy.</h2>
+      <p class="section-lead">These aren't influencers. They're verified Popular Investors with transparent track records, rigorous risk scores, and real skin in the game.</p>
+    </div>
+
+    <div class="pro-grid">
+      <!-- PRO 1 -->
+      <div class="pro reveal">
+        <div class="pro-top">
+          <div class="pro-avatar" style="background:linear-gradient(135deg,#FF4FC1,#8E2DFF)">SC</div>
+          <div>
+            <div class="pro-name">satoshi_chic</div>
+            <div class="pro-handle">@satoshi_chic</div>
+            <span class="pro-verified">✓ Elite Popular Investor</span>
+          </div>
+        </div>
+        <div class="pro-tags">
+          <span class="tag">BTC 48%</span><span class="tag">ETH 22%</span><span class="tag">SOL 14%</span><span class="tag">Staking</span>
+        </div>
+        <div class="pro-metrics">
+          <div><div class="metric-lbl">Return 12M</div><div class="metric-val green">+64.8%</div></div>
+          <div><div class="metric-lbl">Risk score</div><div class="metric-val">5/10</div></div>
+        </div>
+        <div class="spark">
+          <svg class="sparkline" viewBox="0 0 200 36" preserveAspectRatio="none" width="100%" height="100%">
+            <path d="M0 28 L20 22 L40 26 L60 18 L80 20 L100 12 L120 16 L140 8 L160 10 L200 4"/>
+          </svg>
+        </div>
+        <a href="#" class="btn btn-primary">Copy satoshi_chic</a>
+      </div>
+
+      <!-- PRO 2 -->
+      <div class="pro reveal">
+        <div class="pro-top">
+          <div class="pro-avatar" style="background:linear-gradient(135deg,#13C636,#0BA52B)">AK</div>
+          <div>
+            <div class="pro-name">altking</div>
+            <div class="pro-handle">@altking</div>
+            <span class="pro-verified">✓ Elite Popular Investor</span>
+          </div>
+        </div>
+        <div class="pro-tags">
+          <span class="tag">L2s 40%</span><span class="tag">ETH 25%</span><span class="tag">LINK 10%</span><span class="tag">DeFi</span>
+        </div>
+        <div class="pro-metrics">
+          <div><div class="metric-lbl">Return 12M</div><div class="metric-val green">+42.1%</div></div>
+          <div><div class="metric-lbl">Risk score</div><div class="metric-val">6/10</div></div>
+        </div>
+        <div class="spark">
+          <svg class="sparkline pink" viewBox="0 0 200 36" preserveAspectRatio="none" width="100%" height="100%">
+            <path d="M0 30 L20 26 L40 22 L60 24 L80 16 L100 18 L120 12 L140 14 L160 10 L200 8"/>
+          </svg>
+        </div>
+        <a href="#" class="btn btn-primary">Copy altking</a>
+      </div>
+
+      <!-- PRO 3 -->
+      <div class="pro reveal">
+        <div class="pro-top">
+          <div class="pro-avatar" style="background:linear-gradient(135deg,#AEE2FF,#4C8CFF);color:#040327">MC</div>
+          <div>
+            <div class="pro-name">macro_crypto</div>
+            <div class="pro-handle">@macro_crypto</div>
+            <span class="pro-verified">✓ Popular Investor</span>
+          </div>
+        </div>
+        <div class="pro-tags">
+          <span class="tag">Blue chips</span><span class="tag">BTC 55%</span><span class="tag">Stable 15%</span><span class="tag">Macro</span>
+        </div>
+        <div class="pro-metrics">
+          <div><div class="metric-lbl">Return 12M</div><div class="metric-val green">+28.7%</div></div>
+          <div><div class="metric-lbl">Risk score</div><div class="metric-val">3/10</div></div>
+        </div>
+        <div class="spark">
+          <svg class="sparkline blue" viewBox="0 0 200 36" preserveAspectRatio="none" width="100%" height="100%">
+            <path d="M0 26 L30 24 L60 22 L90 20 L120 16 L150 14 L180 12 L200 10"/>
+          </svg>
+        </div>
+        <a href="#" class="btn btn-primary">Copy macro_crypto</a>
+      </div>
+
+      <!-- PRO 4 -->
+      <div class="pro reveal">
+        <div class="pro-top">
+          <div class="pro-avatar" style="background:linear-gradient(135deg,#F5A524,#E8631B)">DZ</div>
+          <div>
+            <div class="pro-name">defi_zen</div>
+            <div class="pro-handle">@defi_zen</div>
+            <span class="pro-verified">✓ Popular Investor</span>
+          </div>
+        </div>
+        <div class="pro-tags">
+          <span class="tag">DeFi 50%</span><span class="tag">Yield</span><span class="tag">Stable 20%</span><span class="tag">Long-term</span>
+        </div>
+        <div class="pro-metrics">
+          <div><div class="metric-lbl">Return 12M</div><div class="metric-val green">+19.3%</div></div>
+          <div><div class="metric-lbl">Risk score</div><div class="metric-val">4/10</div></div>
+        </div>
+        <div class="spark">
+          <svg class="sparkline gold" viewBox="0 0 200 36" preserveAspectRatio="none" width="100%" height="100%">
+            <path d="M0 28 L25 26 L50 24 L75 22 L100 20 L125 18 L150 18 L175 16 L200 14"/>
+          </svg>
+        </div>
+        <a href="#" class="btn btn-primary">Copy defi_zen</a>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:36px;color:var(--muted);font-size:13px">Past performance doesn't guarantee future results. Your capital is at risk.</p>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Built for crypto-native investors</span>
+      <h2 class="section-title display">One app. <span style="color:var(--green)">All the power.</span> Zero hidden charges.</h2>
+      <p class="section-lead">Everything a crypto copytrader actually needs — and nothing you don't. On a platform regulated across the world and trusted by 40M+ investors.</p>
+    </div>
+
+    <div class="feat-grid">
+      <div class="feat reveal">
+        <div class="feat-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="3"/><path d="M2 10h20"/><path d="M12 15h.01"/></svg>
+        </div>
+        <h3>1% flat fee. That's it.</h3>
+        <p>Buy, sell, and copy 150+ cryptos with one transparent fee. No hidden spreads. No surprises at checkout.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V6l-8-3-8 3v6c0 6 8 10 8 10Z"/></svg>
+        </div>
+        <h3>Free, regulated custody</h3>
+        <p>Your coins, stored secure — with zero storage fees. Move to your own wallet any time. Your crypto, your call.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7Z"/></svg>
+        </div>
+        <h3>Stake with no lockup</h3>
+        <p>Earn rewards on eligible coins while staying fully flexible. No freezing periods. No complicated setup.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+        </div>
+        <h3>Copy, reverse, tune</h3>
+        <p>Mirror any Popular Investor's crypto portfolio 1:1 — or copy partial. Stop, rebalance or flip strategies instantly.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>
+        </div>
+        <h3>eToro Academy — free</h3>
+        <p>Learn to spot great crypto investors, manage risk, and decode on-chain signals with the world's biggest free financial academy.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <h3>All-in-one portfolio</h3>
+        <p>Crypto, stocks, ETFs, commodities — in one intuitive app. Your bull in all markets. One login, every move.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BIG STATEMENT ============ -->
+<section class="statement" id="crypto">
+  <div class="wrap reveal">
+    <h2>Silent money<br/>loses.<br/><span style="color:var(--navy-3)">Copied money</span><br/>compounds.</h2>
+    <p>Crypto moves fast. Your edge shouldn't be a group chat, a lucky tip, or yesterday's YouTube. It should be real portfolios, real performance, real people. Verified, ranked, copyable.</p>
+    <a href="#cta" class="btn btn-primary btn-lg">Find your Popular Investor</a>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">What copytraders say</span>
+      <h2 class="section-title display">Real investors. <span style="color:var(--gold)">Real portfolios.</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I stopped trying to out-trade the market and started copying a BTC-majors pro. First full cycle where I actually kept my gains."</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#13C636,#0BA52B)">LP</div>
+          <div><div class="testi-name">Lukas P.</div><div class="testi-role">Copies 2 crypto pros · Berlin</div></div>
+        </div>
+      </div>
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Staking with no lockup + transparent 1% fees. I finally understand every line on my statement. That's a first for crypto."</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#FF4FC1,#8E2DFF)">RV</div>
+          <div><div class="testi-name">Rhea V.</div><div class="testi-role">Long-term copytrader · Dubai</div></div>
+        </div>
+      </div>
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>"The app ranks pros by risk, not hype. That's the difference. My L2 allocation is up and I still sleep at night."</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#F5A524,#E8631B)">JT</div>
+          <div><div class="testi-name">James T.</div><div class="testi-role">DeFi-first investor · Singapore</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="cta-final" id="cta">
+  <div class="wrap reveal">
+    <h2>
+      Your <span class="g">crypto future</span><br/>
+      deserves a <span class="g">crowd.</span>
+    </h2>
+    <p>Join 40M+ investors copying, staking, and compounding on eToro. Sign up in under 3 minutes. No minimum to start.</p>
+    <a href="#" class="btn btn-primary btn-lg">Create free account</a>
+    <p style="margin-top:18px;font-size:12px">Already a user? <a href="#" style="color:var(--green)">Log in</a></p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-col">
+        <div class="logo" style="margin-bottom:18px">
+          <svg viewBox="0 0 120 34" fill="none" aria-hidden="true" height="28">
+            <path d="M14 9c-4 0-8 3-8 8s4 8 8 8 8-3 8-8c0-.7-.1-1.3-.2-2H12v4h5.3c-.6 1.3-2 2-3.3 2-2.2 0-4-1.8-4-4s1.8-4 4-4c1.2 0 2.2.5 3 1.3l2.7-2.7C18 9.9 16.2 9 14 9Z" fill="#13C636"/>
+            <path d="M8 5l2-3 2 3M20 5l2-3 2 3" stroke="#13C636" stroke-width="2" stroke-linecap="round"/>
+            <text x="30" y="23" font-family="Oswald, sans-serif" font-weight="700" font-size="20" fill="#13C636" letter-spacing="-.5">eToro</text>
+          </svg>
+        </div>
+        <p style="max-width:340px">Empowering investors since 2007. The social trading platform where 40M+ people build wealth together.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Crypto</h4>
+        <a href="#">Buy Bitcoin</a>
+        <a href="#">Buy Ethereum</a>
+        <a href="#">Staking</a>
+        <a href="#">eToro Wallet</a>
+        <a href="#">Smart Portfolios</a>
+      </div>
+      <div class="foot-col">
+        <h4>Trade</h4>
+        <a href="#">CopyTrader</a>
+        <a href="#">Popular Investors</a>
+        <a href="#">Stocks</a>
+        <a href="#">ETFs</a>
+        <a href="#">Commodities</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Academy</a>
+        <a href="#">Regulation</a>
+        <a href="#">Help Centre</a>
+        <a href="#">Careers</a>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>Your capital is at risk.</strong> Cryptoasset investing is highly volatile and unregulated in some jurisdictions. No consumer protection. Tax on profits may apply. Past performance is not an indication of future results. Copy trading does not constitute investment advice. The value of your investments may go up or down. CopyTrader and Popular Investor Programs are regulatory dependent on your region.
+    </div>
+
+    <div class="foot-bot">
+      © 2026 eToro · Regulated in multiple jurisdictions · This landing page is a design concept inspired by the eToro brand book.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ==== reveal on scroll ====
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+    });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // ==== number count-up ====
+  const counters = document.querySelectorAll('[data-target]');
+  const co = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      const el = e.target;
+      const target = +el.dataset.target;
+      const duration = 1600;
+      const start = performance.now();
+      const suffix = (target === 2007) ? '' : '+';
+      const prefix = '';
+      function tick(now){
+        const p = Math.min(1, (now-start)/duration);
+        const eased = 1 - Math.pow(1-p,3);
+        const v = Math.round(target * eased);
+        el.textContent = prefix + v + suffix;
+        if(p<1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      co.unobserve(el);
+    });
+  },{threshold:0.4});
+  counters.forEach(c=>co.observe(c));
+</script>
+
+</body>
+</html>
